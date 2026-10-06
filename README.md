@@ -15,24 +15,5 @@ uvicorn app.main:app --reload      # Swagger: http://127.0.0.1:8000/docs
 cd frontend && npm install && npm run dev      # http://localhost:5173
 ```
 
-## Endpoint
-
-| Method | Endpoint | Keterangan |
-| --- | --- | --- |
-| GET | `/todos` | Daftar todo (filter, sort, pagination) |
-| POST | `/todos` | Tambah satu todo |
-| POST | `/todos/seed?count=1000` | Insert data random (default 1000) |
-| GET / PATCH / DELETE | `/todos/{id}` | Detail / ubah sebagian / hapus |
-
-**Parameter `GET /todos`:** `status` dan `priority` (boleh diulang, mis. `?status=pending&status=done`), `search` (judul), `sort_by` (`created_at`, `updated_at`, `title`, `status`, `priority`), `order` (`asc`/`desc`), `page`, `page_size` (maks 100).
-
-## Catatan Teknis
-
-- Sorting memakai whitelist kolom, dan `id` jadi pembeda kedua supaya pagination stabil.
-- Seed 1000 data memakai satu bulk insert dan satu commit.
-- ID memakai UUID v7 (`CHAR(36)`), waktu disimpan UTC dengan presisi mikrodetik.
-- Struktur tabel dikelola Alembic, bukan `create_all()`.
-
 ## Video Demo
-
-_isi link YouTube di sini_
+https://drive.google.com/file/d/1xyOQ-YCQIrN6sfHjhctSwJq9f-ueIiir/view?usp=sharing
